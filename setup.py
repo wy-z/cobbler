@@ -508,7 +508,6 @@ if __name__ == "__main__":
             "pyyaml",
             "netaddr",
             "Cheetah3",
-            "pymongo",
             "distro",
             "python-ldap",
             "dnspython",
@@ -516,6 +515,7 @@ if __name__ == "__main__":
             "schema"
         ],
         extras_require={
+            "full": ["ldap3", "pymongo"],
             "lint": ["pyflakes", "pycodestyle"],
             "test": ["pytest", "pytest-cov", "codecov", "pytest-mock"]
         },
