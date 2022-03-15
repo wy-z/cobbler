@@ -193,9 +193,9 @@ class CobblerAPI:
         new_settings.from_dict(normalized_settings)
 
         if yaml_dict.get("auto_migrate_settings", True):
-           # save to disk only when automigration was performed
-           # to avoid creating duplicated files
-           new_settings.save(settings_path)
+            # save to disk only when automigration was performed
+            # to avoid creating duplicated files
+            new_settings.save(settings_path)
 
         # Return object
         return new_settings
