@@ -442,7 +442,7 @@ class Profile(item.Item):
         else:
             self._next_server_v6 = validate.ipv6_address(server)
 
-    @InheritableProperty
+    @property
     def filename(self) -> str:
         """
         The filename which is fetched by the client from TFTP.
@@ -450,7 +450,7 @@ class Profile(item.Item):
         :getter: Either the default/inherited one, or the one specific to this profile.
         :setter: The new filename which is fetched on boot. May raise a ``TypeError`` when the wrong type was given.
         """
-        return self._resolve("filename")
+        return self._filename
 
     @filename.setter
     def filename(self, filename: str):
@@ -462,10 +462,7 @@ class Profile(item.Item):
         """
         if not isinstance(filename, str):
             raise TypeError("Field filename of object profile needs to be of type str!")
-        if not filename:
-            self._filename = enums.VALUE_INHERITED
-        else:
-            self._filename = filename.strip()
+        self._filename = filename.strip()
 
     @property
     def autoinstall(self) -> str:
